@@ -1,22 +1,46 @@
-<h2>Fresh Burgers Here!</h2>
-<div class="fresh_burgers">
-  <ul>
-    {{#each burgers}}
-    {{#unless devoured}}
-    {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-    {{/each}}
-  </ul>
-</div>
+
+{{!-- MAIN HEADER, MIGHT BE AN IMAGE INSTEAD OF TEXT --}}
+<h1>EAT-A-BURGER</h1>
 
 
-<h2>Devoured Burgers</h2>
-<div class="devoured_burgers">
-  <ul>
-    {{#each burgers}}
-    {{#if devoured}}
-    {{> burgers/burger-block devoured=false}}
-    {{/if}}
-    {{/each}}
-  </ul>
+{{!-- ADD A BURGER FORM - WILL WANT IT TO BE IN-LINE --}}
+<h2>Add-A-Burger</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Burger Name:</label>
+    <input type="text" id="burger" name="name">
+  </div>
+
+  {{!-- Set all new burgers to Not Devoured when created --}}
+
+  <button type="submit">Add Cat</button>
+</form>
+
+<div class="container">
+
+{{!-- LEFT SIDE OF THE DESIGN --}}
+  <div class="burgers fresh_burgers">
+    <h2 class="burger_headers">Fresh Burgers Here!</h2>
+    <ul>
+      {{#each burgers}}
+      {{#unless devoured}}
+      {{> burgers/burger-block devoured=true}}
+      {{/unless}}
+      {{/each}}
+    </ul>
+  </div>
+
+{{!-- RIGHT SIDE OF THE DESIGN --}}
+  <div class="burgers devoured_burgers">
+    <h2 class="burger_headers">Devoured Burgers</h2>
+    <ul>
+      {{#each burgers}}
+      {{#if devoured}}
+      {{> burgers/burger-block devoured=false}}
+      {{/if}}
+      {{/each}}
+    </ul>
+  </div>
+
 </div>
