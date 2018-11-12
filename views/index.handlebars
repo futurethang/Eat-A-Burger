@@ -1,0 +1,22 @@
+<h2>Fresh Burgers Here!</h2>
+<div class="fresh_burgers">
+  <ul>
+    {{#each burgers}}
+    {{#unless devoured}}
+    {{> burgers/burger-block devoured=true}}
+    {{/unless}}
+    {{/each}}
+  </ul>
+</div>
+
+
+<h2>Devoured Burgers</h2>
+<div class="devoured_burgers">
+  <ul>
+    {{#each burgers}}
+    {{#if devoured}}
+    {{> burgers/burger-block devoured=false}}
+    {{/if}}
+    {{/each}}
+  </ul>
+</div>
