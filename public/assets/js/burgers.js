@@ -22,5 +22,25 @@ $(function () {
       });
   })
 
+  $(".create-form").on('submit', function (e) {
+    e.preventDefault();
+
+    var newBurger = {
+      burger_name: $("#burger").val().trim(),
+      devoured: 0
+    };
+
+    console.log(newBurger);
+
+    $.ajax("/api/burgers", {
+      type: "POST",
+      data: newBurger
+    }).then(
+      function () {
+        console.log("new burger added to the menu");
+        location.reload();
+      }
+    );
+  });
 
 })
