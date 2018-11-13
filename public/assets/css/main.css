@@ -1,0 +1,47 @@
+* {
+  border: 1px dashed red;
+}
+
+.container {
+  background: rgb(185, 185, 241);
+  display: flex;
+  flex-direction: column;
+}
+
+.burgers {
+  width: 48%;
+  font-family: sans-serif;
+  background: yellow;
+}
+
+.add-burger {
+  display: block;
+}
+
+.sub-sections {
+  width: 85%;
+  background: green;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  align-self: center;
+}
+
+.burgers li  {
+  color: red;
+  list-style-type: none;
+}
+
+.eat_or_delete {
+  display: inline;
+}
+
+h4 {
+  display: inline;
+}
+
+h1, h2{
+  font-family: sans-serif;
+  text-align: center;
+}

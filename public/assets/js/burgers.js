@@ -22,6 +22,12 @@ $(function () {
       });
   })
 
+  $(".eat_or_delete").on('click', function () {
+    if ($(this).data("devoured") === true) {
+      console.log("already devoured need to delete"); // INVOKE THE DELETE FUNTION
+    } else {console.log("cannot delete");} // CANNOT DELETE, CHANGE TO DEVORED
+  })
+
   $(".create-form").on('submit', function (e) {
     e.preventDefault();
 

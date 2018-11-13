@@ -1,46 +1,49 @@
-
-{{!-- MAIN HEADER, MIGHT BE AN IMAGE INSTEAD OF TEXT --}}
-<h1>EAT-A-BURGER</h1>
-
-
-{{!-- ADD A BURGER FORM - WILL WANT IT TO BE IN-LINE --}}
-<h2>Add-A-Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="burger">Burger Name:</label>
-    <input type="text" id="burger" name="name">
+<div class="container main">
+  <div class="top-bun">  
+    <h1>EAT-A-BURGER</h1>
+  </div>  
+  
+  <div class="patty add-burger">
+    {{!-- ADD A BURGER FORM - WILL WANT IT TO BE IN-LINE --}}
+    <h2>Add-A-Burger</h2>
+    <form class="create-form">
+      <div class="form-group">
+        <label for="burger">Burger Name:</label>
+        <input type="text" id="burger" name="name">
+      </div>
+      <button type="submit">Add Burger</button>
+    </form>
   </div>
 
-  {{!-- Set all new burgers to Not Devoured when created --}}
 
-  <button type="submit">Add Burger</button>
-</form>
+  <div class="container sub-sections">
 
-<div class="container">
+    {{!-- LEFT SIDE OF THE DESIGN --}}
+    <div class="burgers fresh_burgers">
+      <h2 class="burger_headers">Fresh Burgers Here!</h2>
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
 
-{{!-- LEFT SIDE OF THE DESIGN --}}
-  <div class="burgers fresh_burgers">
-    <h2 class="burger_headers">Fresh Burgers Here!</h2>
-    <ul>
-      {{#each burgers}}
-      {{#unless devoured}}
-      {{> burgers/burger-block devoured=false}}
-      {{/unless}}
-      {{/each}}
-    </ul>
+    {{!-- RIGHT SIDE OF THE DESIGN --}}
+    <div class="burgers devoured_burgers">
+      <h2 class="burger_headers">Devoured Burgers</h2>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
 
-{{!-- RIGHT SIDE OF THE DESIGN --}}
-  <div class="burgers devoured_burgers">
-    <h2 class="burger_headers">Devoured Burgers</h2>
-    <ul>
-      {{#each burgers}}
-      {{#if devoured}}
-      {{> burgers/burger-block devoured=true}}
-      {{/if}}
-      {{/each}}
-    </ul>
+  <div class="bottom-bun">
+    
   </div>
-
 </div>
