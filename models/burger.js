@@ -1,5 +1,5 @@
 ///// Require on ORM standard with MySQL
-var orm = require('orm.js');
+var orm = require('../config/orm.js');
 
 var burger = {
   selectAll: function (cb) {
@@ -19,7 +19,7 @@ var burger = {
       cb(res);
     })
   },
-  
+
   deleteOne: function (burger, cb) {
     orm.deleteOne(burger, cb, function (res) {
       cb(res);
