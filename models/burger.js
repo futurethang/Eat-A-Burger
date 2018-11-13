@@ -1,16 +1,30 @@
 ///// Require on ORM standard with MySQL
-// var orm = require('orm.js');
+var orm = require('orm.js');
 
-////// Requeire using Sequelize ////////
-var Sequelize = require('sequelize');
+var burger = {
+  selectAll: function (cb) {
+    orm.selectAll("burgers", function (res) {
+      cb(res);
+    })
+  },
 
-var sequelize = require('../config/connection.js');
+  insertOne: function (cols, vals, cb) {
+    orm.insertOne("burgers", cols, vals, function (res) {
+      cb(res);
+    })
+  },
 
-var Burger = sequelize.define('burger', {
-  burger_name: Sequelize.STRING,
-  devoured: Sequelize.BOOLEAN,
-})
+  updateOne: function (objColVals, condition, cb) {
+    orm.updateOne("burgers", objColVals, condition, function (res) {
+      cb(res);
+    })
+  },
+  
+  deleteOne: function (burger, cb) {
+    orm.deleteOne(burger, cb, function (res) {
+      cb(res);
+    })
+  }
+}
 
-Burger.sync();
-
-module.exports = Burger;
+module.exports = burger;

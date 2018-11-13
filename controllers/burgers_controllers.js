@@ -1,33 +1,49 @@
-// THIS SCRIPT IS WHAT REPLACES THE DIFFERENT ROUTES FILES USED PREVIOUSLY
-
 var express = require('express');
-var app = express();
+
 var router = express.Router();
 
 var burger = require('../models/burger.js');
 
-module.exports = function (app) {
-
-  app.get("/", function (req, res) {
-    burger.findAll()
-      .then(function(data){
-        res.json(data)
-      })
-    // burger.all(function (data) {
-    //   var burgersObject = {
-    //     burgers: data
-    //   };
-    //   console.log(burgersObject);
-    //   res.render(burgersObject);
-    // })
+router.get("/", function (req, res) {
+  burger.selectAll(function (data) {
+    var burgersObject = {
+      burgers: data
+    };
+    console.log(burgersObject);
+    res.render("indedx", burgersObject);
   })
+})
 
-  app.post("/api/new", function (req, res) {
-    burger.create({
-      burger_name: req.body.name,
-      devoured: false
-    }).then(function (data) {
-      res.end();
+router.post("/api/burgers", function (req, res) {
+  burger.insertOne([
+    "name", "devoured"], [
+      req.body.name, req.body.devoured
+    ], function (result) {
+      res.json({ id: resultId });
     })
+})
+
+router.put("api/burgers/:id", function (req, res) {
+  var condition = "id = " + req.params.id;
+  console.log("condition", condition);
+
+  burger.updateOne({
+    devoured: req.body.devoured
+  }, condition, function (result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
   })
-}
+})
+
+router.delete("api/burgers/:id", function (req, res) {
+  var burgerToDelete = req.params.id;
+  burger.deleteOne(burgerToDelete, function (result) {
+    console.log("burger deleted");
+  })
+})
+
+module.exports = router;
