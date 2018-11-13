@@ -5,19 +5,22 @@ $(function () {
   $(".eat_or_delete").on('click', function (e) {
     var id = $(this).data("id");
     var isDevoured = $(this).data("devoured");
+    // console.log(isDevoured, "before");
+    if (isDevoured) { isDevoured = false }
+    else (isDevoured = true);
+    console.log(isDevoured, "after");
 
-    var newDevoureState = { devoured: isDevoured };
+    var newDevourState = { devoured: isDevoured };
 
-    $.ajax("api/burgers" + id, {
+    $.ajax("/api/burgers/" + id, {
       type: "PUT",
-      data: newDevoureState
-    }).then(function () {
-      console.log("changed devour state to", newDevoureState);
-      location.reload();
-    });
+      data: newDevourState
+    }).then(
+      function () {
+        console.log("changed devour state to", newDevourState);
+        location.reload();
+      });
   })
-
-  
 
 
 })

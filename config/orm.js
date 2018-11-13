@@ -61,7 +61,7 @@ var orm = {
     queryString += " SET " + objToSql(objColVals) + " WHERE " + condition;
     console.log(queryString);
 
-    connection.query(queryString, function (err, res) {
+    connection.query(queryString, function (err, result) {
       if (err) { throw err };
       cb(result);
     })
