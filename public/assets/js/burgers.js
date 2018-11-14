@@ -2,7 +2,7 @@
 
 $(function () {
 
-  $(".eat_or_delete").on('click', function (e) {
+  $(".eat_or_put_back").on('click', function (e) {
     var id = $(this).data("id");
     var isDevoured = $(this).data("devoured");
     // console.log(isDevoured, "before");
@@ -22,10 +22,18 @@ $(function () {
       });
   })
 
-  $(".eat_or_delete").on('click', function () {
+  $(".delete").on('click', function () {
     if ($(this).data("devoured") === true) {
-      console.log("already devoured need to delete"); // INVOKE THE DELETE FUNTION
-    } else {console.log("cannot delete");} // CANNOT DELETE, CHANGE TO DEVORED
+      var id = $(this).data("id");
+      console.log(id);
+      
+      $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+      }).then(function (res) {
+          console.log("Hey O!", res);
+          location.reload(true);
+        });
+    }
   })
 
   $(".create-form").on('submit', function (e) {

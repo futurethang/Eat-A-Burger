@@ -68,8 +68,8 @@ var orm = {
   },
   
   deleteOne: function (table, burger, cb) {
-    var queryString = "DELETE FROM " + table + " WHERE name = " + burger;
-
+    var queryString = "DELETE FROM " + table + " WHERE id = " + burger;
+    console.log(queryString);
     connection.query(queryString, function (err, res) {
       if (err) { throw err };
       cb(res);

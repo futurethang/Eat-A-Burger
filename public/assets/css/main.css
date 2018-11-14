@@ -1,9 +1,8 @@
-* {
+/* * {
   border: 1px dashed red;
-}
+} */
 
 .container {
-  background: rgb(185, 185, 241);
   display: flex;
   flex-direction: column;
 }
@@ -11,7 +10,7 @@
 .burgers {
   width: 48%;
   font-family: sans-serif;
-  background: yellow;
+  background: rgb(19, 156, 19);
 }
 
 .add-burger {
@@ -19,7 +18,7 @@
 }
 
 .sub-sections {
-  width: 85%;
+  width: 98%;
   background: green;
   display: flex;
   flex-direction: row;
@@ -28,13 +27,59 @@
   align-self: center;
 }
 
+.top-bun {
+  height: 150px;
+  background: rgb(255, 208, 0);
+}
+
+.patty {
+  background: brown;
+}
+
+.bottom-bun {
+  height: 100px;
+  background: rgb(255, 208, 0);
+}
+
 .burgers li  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
   color: red;
   list-style-type: none;
+  height: 30px;
+  left: -20px;
+}
+
+.burgers li button {
+  height: 20px;
+}
+
+.form-group {
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  color: red;
+  list-style-type: none;
+  height: 30px;
+  width: 50%;
+}
+
+.form-group button {
+  display: inline;
 }
 
 .eat_or_delete {
   display: inline;
+}
+
+.hide {
+  display: none;
 }
 
 h4 {

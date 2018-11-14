@@ -21,7 +21,7 @@ var burger = {
   },
 
   deleteOne: function (burger, cb) {
-    orm.deleteOne(burger, cb, function (res) {
+    orm.deleteOne("burgers", burger, function (res) {
       cb(res);
     })
   }
