@@ -4,12 +4,14 @@ var mysql = require("mysql");
 
 //////// MySQL ////////////
 var connection = mysql.createConnection({
-  host: "localhost",
+  host: "us-cdbr-iron-east-01.cleardb.net",
   port: 3306,
-  user: "root",
-  password: "",
-  database: "burgers_db"
+  user: "bf0a2e4d7888a8",
+  password: "d932d01b",
+  database: "heroku_6a32f2634e36fa1"
 });
+
+mysql://bf0a2e4d7888a8:d932d01b@us-cdbr-iron-east-01.cleardb.net/heroku_6a32f2634e36fa1?reconnect=true
 
 // ////////// Sequelize ////////////
 // var sequelize = new Sequelize("burgers_db", "root", "", {
