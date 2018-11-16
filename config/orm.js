@@ -34,45 +34,45 @@ function objToSql(ob) {
 }
 
 var orm = {
-  selectAll: function (tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+  selectAll: function (table, callback) {
+    var queryString = "SELECT * FROM " + table + ";";
     console.log(queryString);
     connection.query(queryString, function (err, result) {
       if (err) { throw err };
-      cb(result);
+      callback(result);
     })
    },
 
-  insertOne: function (table, cols, vals, cb) { 
+  insertOne: function (table, columns, values, callback) { 
     var queryString = "INSERT INTO " + table;
-    queryString += " (" + cols.toString() + ") ";
-    queryString += "VALUES (" + printQuestionMarks(vals.length) + ") ";
+    queryString += " (" + columns.toString() + ") ";
+    queryString += "VALUES (" + printQuestionMarks(values.length) + ") ";
     console.log(queryString);
 
-    connection.query(queryString, vals, function (err, result) {
+    connection.query(queryString, values, function (err, result) {
       if (err) { throw err };
-      cb(result);
+      callback(result);
     })
   },
   
-  updateOne: function (table, objColVals, condition, cb) {
+  updateOne: function (table, id, condition, callback) {
     var queryString = "UPDATE " + table;
 
-    queryString += " SET " + objToSql(objColVals) + " WHERE " + condition;
+    queryString += " SET " + objToSql(id) + " WHERE " + condition;
     console.log(queryString);
 
     connection.query(queryString, function (err, result) {
       if (err) { throw err };
-      cb(result);
+      callback(result);
     })
   },
   
-  deleteOne: function (table, burger, cb) {
+  deleteOne: function (table, burger, callback) {
     var queryString = "DELETE FROM " + table + " WHERE id = " + burger;
     console.log(queryString);
     connection.query(queryString, function (err, res) {
       if (err) { throw err };
-      cb(res);
+      callback(res);
     })
   }
 }

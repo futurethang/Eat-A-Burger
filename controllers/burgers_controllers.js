@@ -4,49 +4,50 @@ var router = express.Router();
 
 var burger = require('../models/burger.js');
 
-router.get("/", function (req, res) {
+router.get("/", function (request, result) {
   burger.selectAll(function (data) {
     var burgersObject = {
       burgers: data
     };
     console.log(burgersObject);
-    res.render("index", burgersObject);
+    result.render("index", burgersObject);
   })
 })
 
-router.get("/api/burgers", function (req, res) { 
-  burger.selectAll(function (data) { 
-    res.json(data);
-   })
- })
+router.get("/api/burgers", function (request, result) {
+  burger.selectAll(function (data) {
+    result.json(data);
+  })
+})
 
-router.post("/api/burgers", function (req, res) {
+router.post("/api/burgers", function (request, result) {
   burger.insertOne([
     "burger_name", "devoured"], [
-      req.body.burger_name, req.body.devoured
-    ], function (result) {
-      res.json({ id: result.insertId });
+      request.body.burger_name, request.body.devoured
+    ], function (res) {
+      result.json({ id: res.insertId });
     })
 })
 
-router.put("/api/burgers/:id", function (req, res) {
-  var condition = "id = " + req.params.id;
-  console.log("condition", condition);
+router.put("/api/burgers/:id", function (request, result) {
+  var id = "id = " + request.params.id;
+  var condition = request.body.devoured;
+  console.log("id", id);
 
   burger.updateOne({
-    devoured: req.body.devoured
-  }, condition, function (result) {
-    if (result.changedRows == 0) {
+    devoured: condition
+  }, id, function (res) {
+    if (res.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
-      return res.status(404).end();
+      return result.status(404).end();
     } else {
-      res.status(200).end();
+      result.status(200).end();
     }
   })
 })
 
-router.delete("/api/burgers/:id", function (req, res) {
-  var burgerId = req.params.id;
+router.delete("/api/burgers/:id", function (request, res) {
+  var burgerId = request.params.id;
   console.log("burger id: " + burgerId);
   burger.deleteOne(burgerId, function (result) {
     console.log("burger deleted");

@@ -30,6 +30,13 @@
 .top-bun {
   height: 150px;
   background: rgb(255, 208, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-bun h1 {
+  font-size: 8vw;
 }
 
 .patty {
@@ -66,7 +73,7 @@
   position: relative;
   color: red;
   list-style-type: none;
-  height: 30px;
+  height: 50px;
   width: 50%;
 }
 
