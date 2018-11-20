@@ -1,10 +1,10 @@
-<li>
-  <button class="eat_or_put_back" data-id="{{id}}" data-devoured="{{devoured}}">
+<li class="list-group-item list-group-item-primary">
+  <button class="eat_or_put_back btn btn-outline-secondary" data-id="{{id}}" data-devoured="{{devoured}}">
     {{#if devoured}}Un-Devour{{else}}Devour Me{{/if}}
   </button>
   <h4><span>{{burger_name}}</span></h4>
   
-  <button class="delete {{#if devoured}}show{{else}}hide{{/if}}" data-id="{{id}}" data-devoured="{{devoured}}">
+  <button class="btn btn-outline-danger delete {{#if devoured}}show{{else}}hide{{/if}}" data-id="{{id}}" data-devoured="{{devoured}}">
     Delete
   </button>
 </li>

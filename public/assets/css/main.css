@@ -2,14 +2,27 @@
   border: 1px dashed red;
 } */
 
+body {
+  background: aliceblue;
+}
+
 .container {
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+
+.main {
+  margin-top: 24px;
+}
+
+.round {
+  border-radius: 20px;
 }
 
 .burgers {
-  width: 48%;
+  /* width: 48%; */
   font-family: sans-serif;
+  padding-bottom: 20px;
   background: rgb(19, 156, 19);
 }
 
@@ -18,13 +31,13 @@
 }
 
 .sub-sections {
-  width: 98%;
-  background: green;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  /* width: 98%; */
+  background: rgb(19, 156, 19);
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* flex-wrap: wrap;
   justify-content: space-between; 
-  align-self: center;
+  align-self: center; */
 }
 
 .top-bun {
@@ -37,10 +50,20 @@
 
 .top-bun h1 {
   font-size: 8vw;
+  font-family: 'Exo', sans-serif;
 }
 
 .patty {
+  padding: 10px 0 10px 0;
   background: brown;
+  height: 100%;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.create-form {
+  width: 60%;
 }
 
 .bottom-bun {
@@ -49,32 +72,37 @@
 }
 
 .burgers li  {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between;
   align-items: center;
   position: relative;
   color: red;
-  list-style-type: none;
-  height: 30px;
-  left: -20px;
+  list-style-type: none; */
+  /* height: 30px; */
+  /* left: -20px; */
 }
 
 .burgers li button {
-  height: 20px;
+  margin-right: 10px;
+}
+
+.btn-outline-danger {
+  margin-left: 10px;
+  float: right;;
 }
 
 .form-group {
-  margin: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  margin-top: 1rem;
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between;
   align-items: center;
   position: relative;
   color: red;
   list-style-type: none;
   height: 50px;
-  width: 50%;
+  width: 50%; */
 }
 
 .form-group button {
@@ -82,7 +110,7 @@
 }
 
 .eat_or_delete {
-  display: inline;
+  /* display: inline; */
 }
 
 .hide {
@@ -91,9 +119,15 @@
 
 h4 {
   display: inline;
+  font-size: 12pt;
 }
 
 h1, h2{
-  font-family: sans-serif;
+  font-family: 'Varela Round', sans-serif;
   text-align: center;
+}
+
+h2 {
+  color: beige;
+  margin-top: 5px;
 }
