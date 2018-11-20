@@ -23,7 +23,7 @@ body {
   /* width: 48%; */
   font-family: sans-serif;
   padding-bottom: 20px;
-  background: rgb(19, 156, 19);
+  background: brown;
 }
 
 .add-burger {
@@ -32,7 +32,7 @@ body {
 
 .sub-sections {
   /* width: 98%; */
-  background: rgb(19, 156, 19);
+  background: brown;
   /* display: flex; */
   /* flex-direction: row; */
   /* flex-wrap: wrap;
@@ -55,7 +55,7 @@ body {
 
 .patty {
   padding: 10px 0 10px 0;
-  background: brown;
+  background: rgb(19, 156, 19);
   height: 100%;
   
   justify-content: center;
